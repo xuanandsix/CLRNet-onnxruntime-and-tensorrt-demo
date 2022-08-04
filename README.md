@@ -30,12 +30,12 @@ keep, num_to_keep, _ = nms(
 1、git official code and install original environment by refer to https://github.com/Turoad/CLRNet <br>
 2、git clone this code <br>
 3、cp clr_head.py   to yout_path/CLRNet/clrnet/models/heads/ <br>
-4、cp grid_sample.py  to   your_path/CLRNet/modules/
+4、cp grid_sample.py  to   your_path/CLRNet/modules/ <br>
 5、cp torch2onnx.py  to your_path/CLRNet/
-
 6、For example, run
+```
 python torch2onnx.py configs/clrnet/clr_resnet18_tusimple.py  --load_from tusimple_r18.pth
-
+```
 7、cp test.jpg to your_path/CLRNet/ run
 python demo_onnx.py
 
