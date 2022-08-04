@@ -21,5 +21,8 @@ python torch2onnx.py configs/clrnet/clr_resnet18_tusimple.py  --load_from tusimp
 ## output 
 
 <img src="https://github.com/xuanandsix/CLRNet-onnxruntime-and-tensorrt-demo/raw/main/imgs/output_onnx.png">
-###
+
+## TO DO 
+- [ ] ptimizing post-processing. 
+- [ ] tensorrt demo.
 
