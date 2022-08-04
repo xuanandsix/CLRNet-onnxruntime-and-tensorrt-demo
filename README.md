@@ -31,7 +31,7 @@ keep, num_to_keep, _ = nms(
 2、git clone this code <br>
 3、cp clr_head.py   to yout_path/CLRNet/clrnet/models/heads/ <br>
 4、cp grid_sample.py  to   your_path/CLRNet/modules/ <br>
-5、cp torch2onnx.py  to your_path/CLRNet/
+5、cp torch2onnx.py  to your_path/CLRNet/ <br>
 6、For example, run
 ```
 python torch2onnx.py configs/clrnet/clr_resnet18_tusimple.py  --load_from tusimple_r18.pth
