@@ -1,6 +1,11 @@
 # CLRNet-onnxruntime-and-tensorrt-demo
 This is the onnxruntime and tensorrt inference code for CLRNet: Cross Layer Refinement Network for Lane Detection (CVPR 2022). Official code: https://github.com/Turoad/CLRNet
 
+# Note
+1、Making onnx supported op grid_sampler.
+2、Using this code you can successfully convert to onnx model and inference an onnxruntime demo. But I can't completely abandon torch when using nms. I will try again in the future.
+3、Modifying d affects the training code, only for onnx inference.
+4、It mainly includes two parts: model inference and post-processing.
 
 ## test onnx
 1、git official code and install original environment by refer to https://github.com/Turoad/CLRNet <br>
@@ -15,6 +20,6 @@ python torch2onnx.py configs/clrnet/clr_resnet18_tusimple.py  --load_from tusimp
 
 ## output 
 
-<img src="">
+<img src="https://github.com/xuanandsix/CLRNet-onnxruntime-and-tensorrt-demo/raw/main/imgs/output_onnx.png">
 ###
 
