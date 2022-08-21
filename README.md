@@ -3,26 +3,7 @@ This is the onnxruntime and tensorrt inference code for CLRNet: Cross Layer Refi
 
 ## Note
 1、Making onnx supported op grid_sampler. <br>
-2、Using this code you can successfully convert to onnx model and inference an onnxruntime demo. But I can't completely abandon torch funcation when using nms. I will try again in the future. <br>
-```
-// clrnet/ops/csrc/nms.cpp
-#include <torch/extension.h>
-#include <torch/types.h>
-...
-// clrnet/ops/csrc/nms_kernel.cu
-#include <torch/extension.h>
-...
-```
-```
-// demo_onnx.py
-...
-keep, num_to_keep, _ = nms(
-      torch.tensor(nms_predictions).cuda(),
-      torch.tensor(scores).cuda(),
-      overlap=self.nms_thres,
-      top_k=self.max_lanes)
-...
-```
+2、Using this code you can successfully convert to onnx model and inference an onnxruntime demo. A new version demo only use numpy to do post-processing,  easy to deploy but more time cost for NMS. <br>
 3、Modifications according to the following operations will affect the training code, this code only for onnx inference. <br> 
 4、It mainly includes two parts: model inference and post-processing. <br>
 
@@ -36,14 +17,21 @@ keep, num_to_keep, _ = nms(
 ```
 python torch2onnx.py configs/clrnet/clr_resnet18_tusimple.py  --load_from tusimple_r18.pth
 ```
-7、cp test.jpg to your_path/CLRNet/ run
-python demo_onnx.py
+7、cp test.jpg to your_path/CLRNet/  and run
 
+1) NMS based on torch and cpython. 
+```
+python demo_onnx.py
+````
+2) NMS based on numpy.
+```
+python demo_onnx_new.py 
+```
 ## output 
 
 <img src="https://github.com/xuanandsix/CLRNet-onnxruntime-and-tensorrt-demo/raw/main/imgs/output_onnx.png">
 
 ## TO DO 
-- [ ] Optimize post-processing. 
+- [x] Optimize post-processing. 
 - [ ] Tensorrt demo.
 
