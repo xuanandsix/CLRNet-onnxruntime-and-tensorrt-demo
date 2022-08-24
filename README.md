@@ -44,6 +44,10 @@ pip install nvidia-pyindex
 pip install polygraphy
 pip install onnx-graphsurgeon
 ```
+and run
+```
+polygraphy surgeon sanitize your_path/tusimple_r18.onnx --fold-constants --output your_path/tusimple_r18.onnx
+```
 3、 convert to tensorrt and get tusimple_r18.engine
 ```
 ./trtexec --onnx=your_path/tusimple_r18.onnx --saveEngine=your_path/tusimple_r18.engine --verbose
