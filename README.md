@@ -8,7 +8,7 @@ This is the onnxruntime and tensorrt inference code for CLRNet: Cross Layer Refi
 2、Using this code you can successfully convert to onnx model and inference an onnxruntime demo. A new version demo only use numpy to do post-processing,  easy to deploy but more time cost for NMS. <br>
 3、Modifications according to the following operations will affect the training code, this code only for onnx inference. <br> 
 4、It mainly includes two parts: model inference and post-processing. <br>
-5、Supporting convert to tensorrt engine. Tensorrt python and c++ are also planned.
+5、Supporting convert to tensorrt engine.
 
 ## convert and test onnx <a name="onnx"></a>
 1、git official code and install original environment by refer to https://github.com/Turoad/CLRNet <br>
@@ -32,7 +32,7 @@ python demo_onnx_new.py
 ```
 ## onnx output 
 
-<img src="https://github.com/xuanandsix/CLRNet-onnxruntime-and-tensorrt-demo/raw/main/imgs/output_onnx.png" width="640" height="360">
+<img src="https://github.com/xuanandsix/CLRNet-onnxruntime-and-tensorrt-demo/raw/main/imgs/output_onnx.png" width="320" height="180">
 
 ## convert to tensorrt <a name="tensorrt"></a>
 Tensorrt version needs to be greater than 8.4. This code is implemented in TensorRT-8.4.0.6. <br>
@@ -52,11 +52,18 @@ polygraphy surgeon sanitize your_path/tusimple_r18.onnx --fold-constants --outpu
 ```
 ./trtexec --onnx=your_path/tusimple_r18.onnx --saveEngine=your_path/tusimple_r18.engine --verbose
 ```
-4、test demo will done !
+4、test tensorrt demo.
+```
+python demo_trt.py
+```
 
+## tensorrt output 
+
+<img src="https://github.com/xuanandsix/CLRNet-onnxruntime-and-tensorrt-demo/raw/main/imgs/output_trt.png" width="320" height="180">
 
 
 ## TO DO 
 - [x] Optimize post-processing. 
-- [ ] Tensorrt demo.
+- [x] Tensorrt demo.
+- [ ] Cpp demo.
 
