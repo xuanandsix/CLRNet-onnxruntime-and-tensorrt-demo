@@ -20,6 +20,7 @@ This is the onnxruntime and tensorrt inference code for CLRNet: Cross Layer Refi
 ```
 python torch2onnx.py configs/clrnet/clr_resnet18_tusimple.py  --load_from tusimple_r18.pth
 ```
+my deployment log is here https://github.com/xuanandsix/CLRNet-onnxruntime-and-tensorrt-demo/blob/main/my_log/test_onnx.log <br>
 7、cp test.jpg to your_path/CLRNet/  and run
 
 1) NMS based on torch and cpython. 
@@ -34,7 +35,7 @@ python demo_onnx_new.py
 
 <img src="https://github.com/xuanandsix/CLRNet-onnxruntime-and-tensorrt-demo/raw/main/imgs/output_onnx.png" width="320" height="180">
 
-## convert to tensorrt <a name="tensorrt"></a>
+## convert and test tensorrt <a name="tensorrt"></a>
 Tensorrt version needs to be greater than 8.4. This code is implemented in TensorRT-8.4.0.6. <br>
 *GatherElements error、IShuffleLayer error、`is_tensor()' failed* have been resolved. <br>
 1、install tensorrt and compilation tools *trtexec*. <br>
